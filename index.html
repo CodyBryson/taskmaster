@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/style/bootstrap (4).css">
+    <link rel="stylesheet" href="assets/style/main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <title>taskmaster</title>
+</head>
+
+<body>
+    <header class="container-fluid">
+        <h1 class="text-center display-1 text-primary header m-5">Task Master</h1>
+        <button type="button" class="btn btn-outline-secondary flex-end" data-toggle="modal"
+            data-target=#new-list-modal><i class="fa fa-plus text-secondary" aria-hidden="true"></i></button>
+        <h5 class="text-primary"> <b>Add List</b></h5>
+        <div class="modal fade" id="new-list-modal" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center text-primary" id="exampleModalLongTitle">Create List</h5>
+
+                    </div>
+                    <div class="modal-body">
+                        <form onsubmit="app.listsController.createList()">
+                            <div class="form-group">
+                                <div class="m-2 p-2 text-secondary">
+                                    <label for="">List Name</label>
+                                    <input type="text" name="listName" id="name" class="form-control"
+                                        placeholder="Groceries" aria-describedby="helpId">
+                                </div>
+                                <div class="m-2 p-2 text-secondary">
+                                    <label for="">Add a Task!</label>
+                                    <input type="text" name="taskName" id="task" class="form-control"
+                                        placeholder="Peanut Butter" aria-describedby="helpId">
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-success">Create List</button>
+                        </form>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-footer"></div>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </header>
+
+    <main class="container-fluid">
+        <div class="row taskcard" id="list">
+        </div>
+    </main>
+    <footer class="container-fluid bg-dark text-light">
+        <div class="row text-center">
+            <div class="col">
+                <p><small>Made with love by Codeworks</small></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app/main.js" type="module"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
