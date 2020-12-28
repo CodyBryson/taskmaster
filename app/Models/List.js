@@ -18,6 +18,7 @@ export default class List {
                 <input class="form-check-input text-strong" type="checkbox" name="taskName" id="taskName" value="checkedValue">${this.task}
             </label>
         </div>
+        <div class = "row justify-content-between align-items-end">
         <div class="text-left">
         <form class="form-inline"onsubmit="app.tasksController.createTask()">
         <div class="form-group mx-sm-3 mb-2">
@@ -28,7 +29,8 @@ export default class List {
       </form>
         </div>
         <div class="text-right">
-        <button type="button" class="btn btn-danger" onclick="app.listsController.deleteList('${this.id}')">Delete List</button>
+        <button type="button" class="btn btn-danger mx-4" onclick="app.listsController.deleteList('${this.id}')">Delete List</button>
+        </div>
         </div>
 </div>
 </div>

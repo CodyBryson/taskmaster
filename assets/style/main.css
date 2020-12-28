@@ -62,6 +62,7 @@ header{
 .card-body{
   border: 5px double #FF3967;
 }
+
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
