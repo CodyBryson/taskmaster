@@ -16,6 +16,14 @@ class TasksService {
     tasks.push(new Task(newTask))
     ProxyState.tasks = tasks
   }
+  checkBox(id) {
+    let currentTask = ProxyState.tasks.find(task => task.id == id)
+    let currentIndex = ProxyState.tasks.findIndex(task => task.id == id)
+    //@ts-ignore
+    currentTask.isChecked = document.getElementById(`${id}`).isChecked
+    ProxyState.tasks[currentIndex] = currentTask
+
+  }
   constructor() {
     ProxyState.on("tasks", saveState)
   }

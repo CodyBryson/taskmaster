@@ -1,4 +1,6 @@
+import { ProxyState } from "../AppState.js"
 import { tasksService } from "../Services/TasksService.js"
+import { saveState } from "../Utils/LocalStorage.js"
 
 export default class TasksController {
 
@@ -10,7 +12,7 @@ export default class TasksController {
     let newTask = {
       // @ts-ignore
       name: form.taskName.value,
-      listId: listId
+      listId: listId,
     }
     tasksService.createTask(newTask)
 
@@ -20,5 +22,9 @@ export default class TasksController {
 
   delete(taskId) {
     tasksService.delete(taskId)
+  }
+  checkbox(id, listId) {
+    ProxyState.lists.find(list => list.id == id)
+    tasksService.checkBox(id)
   }
 }

@@ -6,6 +6,7 @@ function _draw() {
   let template = ""
   ProxyState.lists.forEach(l => template += l.Template)
   document.getElementById('list').innerHTML = template
+
 }
 
 export default class ListsController {
@@ -20,6 +21,7 @@ export default class ListsController {
     let form = window.event.target
     let newList = {
       name: form['name'].value,
+      color: form['color'].value
 
     }
     listsService.createList(newList)
