@@ -10,8 +10,8 @@ export default class List {
 
   get Template() {
     return /*html*/`
-    <div class="card col-md-4 col-6">
-<div class="card-body m-2 p-2" style= "border: 5px double ${this.color}">
+    <div class="card col-md-4 col-6" style= "border: 5px double ${this.color}">
+<div class="card-body m-2 p-2">
     <h2 class="card-title text-center text-dark"><b>${this.name}</b></h2>
       <div class = "row flex-column p-3">
       ${this.Tasks}
@@ -42,3 +42,9 @@ export default class List {
     return template
   }
 }
+
+//let taskTotal = 
+//let taskCurrent = 
+//ProxyState.tasks = ProxyState.tasks.filter(t => t.listId != checked)
+//return ProxyState.tasks
+//taskCurrent = ProxyState.tasks
