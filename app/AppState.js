@@ -7,7 +7,7 @@ class AppState extends EventEmitter {
 
 
   /** @type {List[]} */
-  lists = [new List({ name: "Test List", task: "whatever" })];
+  lists = []
 
   /**@type {Task[]} */
   tasks = []

@@ -1,31 +1,29 @@
+import { ProxyState } from "../AppState.js"
 import { generateId } from "../Utils/GenerateId.js";
 
 export default class List {
-  constructor({ name, task }) {
-    this.id = generateId()
+  constructor({ name, color, id }) {
     this.name = name
-    this.task = task
-
+    this.color = color
+    this.id = id || generateId()
   }
 
   get Template() {
-    return `
+    return /*html*/`
     <div class="card col-md-4 col-6">
 <div class="card-body m-2 p-2">
-    <h4 class="card-title text-center"><b>${this.name}</b></h4>
-    <div class="form-check form-check-inline"id="task">
-            <label class="form-check-label">
-                <input class="form-check-input text-strong" type="checkbox" name="taskName" id="taskName" value="checkedValue">${this.task}
-            </label>
-        </div>
+    <h2 class="card-title text-center text-dark"><b>${this.name}</b></h2>
+      <div class = "row flex-column p-3">
+      ${this.Tasks}
+      </div>
         <div class = "row justify-content-between align-items-end">
         <div class="text-left">
-        <form class="form-inline"onsubmit="app.tasksController.createTask()">
+        <form onsubmit="app.tasksController.createTask('${this.id}')">
         <div class="form-group mx-sm-3 mb-2">
           <label for="newTask" class="sr-only">Add New Task</label>
-          <input type="newTask" class="form-control" id="taskName" placeholder="Add new task">
+          <input type="text" minlength="3" maxlength="50" class="form-control" id="taskName" placeholder="Add new task" required>
         </div>
-        <button type="submit" class="btn btn-success mb-2">Add Task</button>
+        <button type="submit" class="btn btn-success mb-2 mx-3">Add Task</button>
       </form>
         </div>
         <div class="text-right">
@@ -35,5 +33,12 @@ export default class List {
 </div>
 </div>
     `
+  }
+
+  get Tasks() {
+    let template = ""
+    let tasks = ProxyState.tasks.filter(t => t.listId == this.id)
+    tasks.forEach(t => template += t.Template)
+    return template
   }
 }
