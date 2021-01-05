@@ -23,8 +23,5 @@ export default class TasksController {
   delete(taskId) {
     tasksService.delete(taskId)
   }
-  checkbox(id, listId) {
-    ProxyState.lists.find(list => list.id == id)
-    tasksService.checkBox(id)
-  }
+
 }
